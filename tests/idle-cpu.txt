@@ -1,0 +1,1 @@
+Bash + waited children CPU: 10.33% of one core over ~3s

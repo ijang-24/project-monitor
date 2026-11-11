@@ -1,0 +1,435 @@
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:05:37 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 00:53:17 | Load average (1/5/15m): 0.60 / 0.80 / 1.16
+CPU: 3.7% | Logical CPUs: 8 | Valid sample: 1
+RAM: 4607/7683 MiB (59.9%) | Available: 3075 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 298 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   18M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   11537 ps                            300      0.0 R
+   11525 bash                         17.8      0.0 S
+    3395 chrome                       16.0      6.7 Sl
+    2046 chrome                       14.5      3.2 Sl
+    2002 chrome                       10.9      6.1 Sl
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:05:37 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 00:53:18 | Load average (1/5/15m): 0.60 / 0.80 / 1.16
+CPU: 3.1% | Logical CPUs: 8 | Valid sample: 1
+RAM: 4609/7683 MiB (59.9%) | Available: 3074 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 298 | Running (R): 2 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   18M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   11557 ps                            300      0.0 R
+   11545 bash                         23.5      0.0 S
+    3395 chrome                       16.0      6.7 Sl
+    2046 chrome                       14.5      3.2 Sl
+    2002 chrome                       10.9      6.1 Sl
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:17:21 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:05:01 | Load average (1/5/15m): 0.59 / 0.87 / 1.00
+CPU: 5.6% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5004/7683 MiB (65.1%) | Available: 2679 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   17M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   14997 bash                         23.3      0.0 S+
+    3395 chrome                       12.9      6.7 Sl
+    2046 chrome                       12.2      3.3 Sl
+    2002 chrome                        9.7      6.2 Sl
+    8425 claude                        9.4      4.6 Sl+
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:17:31 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:05:11 | Load average (1/5/15m): 0.50 / 0.84 / 0.99
+CPU: 2.8% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5004/7683 MiB (65.1%) | Available: 2678 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   17M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+    3395 chrome                       12.8      6.7 Sl
+    2046 chrome                       12.2      3.3 Sl
+    2002 chrome                        9.6      6.2 Sl
+    8425 claude                        9.4      4.6 Sl+
+     967 Xorg                          5.5      1.4 Ssl+
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:17:41 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:05:21 | Load average (1/5/15m): 0.58 / 0.84 / 0.99
+CPU: 7.4% | Logical CPUs: 8 | Valid sample: 1
+RAM: 4983/7683 MiB (64.8%) | Available: 2699 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 299 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   18M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15162 ps                            300      0.0 R+
+    3395 chrome                       12.8      6.8 Sl
+    2046 chrome                       12.2      3.3 Sl
+    2002 chrome                        9.6      6.2 Sl
+    8425 claude                        9.4      4.6 Sl+
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:17:51 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:05:31 | Load average (1/5/15m): 0.64 / 0.85 / 0.99
+CPU: 13.1% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5061/7683 MiB (65.8%) | Available: 2621 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   24M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15246 ps                           50.0      0.0 R+
+   15202 xfce4-taskmanag              16.3      0.5 Sl
+    3395 chrome                       12.7      6.8 Sl
+    2046 chrome                       12.1      3.3 Sl
+    2002 chrome                        9.6      6.2 Sl
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:18:01 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:05:41 | Load average (1/5/15m): 0.77 / 0.87 / 1.00
+CPU: 6.6% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5001/7683 MiB (65.0%) | Available: 2681 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 2 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   19M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15300 ps                            300      0.0 R+
+   15202 xfce4-taskmanag              13.1      0.5 Sl
+    3395 chrome                       12.7      6.7 Sl
+    2046 chrome                       12.1      3.3 Sl
+    2002 chrome                        9.6      6.2 Sl
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:18:11 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:05:51 | Load average (1/5/15m): 0.81 / 0.88 / 1.00
+CPU: 5.7% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5001/7683 MiB (65.0%) | Available: 2681 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   19M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+    3395 chrome                       12.7      6.7 Sl
+    2046 chrome                       12.1      3.3 Sl
+   15202 xfce4-taskmanag              11.0      0.5 Sl
+    2002 chrome                        9.6      6.2 Sl
+    8425 claude                        9.5      4.6 Sl+
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:18:21 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:06:01 | Load average (1/5/15m): 0.68 / 0.85 / 0.99
+CPU: 9.4% | Logical CPUs: 8 | Valid sample: 1
+RAM: 4989/7683 MiB (64.9%) | Available: 2693 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   22M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+    3395 chrome                       12.6      6.7 Sl
+    2046 chrome                       12.0      3.3 Sl
+   15202 xfce4-taskmanag               9.7      0.5 Sl
+    2002 chrome                        9.5      6.2 Sl
+    8425 claude                        9.5      4.2 Sl+
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:18:31 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:06:11 | Load average (1/5/15m): 0.81 / 0.87 / 1.00
+CPU: 6.7% | Logical CPUs: 8 | Valid sample: 1
+RAM: 4987/7683 MiB (64.9%) | Available: 2695 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   22M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15482 ps                            300      0.0 R+
+    3395 chrome                       12.6      6.7 Sl
+    2046 chrome                       12.0      3.3 Sl
+    2002 chrome                        9.5      6.2 Sl
+    8425 claude                        9.5      4.3 Sl+
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:18:41 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:06:21 | Load average (1/5/15m): 1.15 / 0.94 / 1.02
+CPU: 8.8% | Logical CPUs: 8 | Valid sample: 1
+RAM: 4980/7683 MiB (64.8%) | Available: 2703 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 301 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   20M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15536 ps                            300      0.0 R+
+    3395 chrome                       12.6      6.7 Sl
+    2046 chrome                       12.0      3.3 Sl
+    8425 claude                        9.5      4.7 Sl+
+    2002 chrome                        9.5      6.2 Sl
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:18:51 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:06:31 | Load average (1/5/15m): 1.59 / 1.04 / 1.05
+CPU: 14.4% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5054/7683 MiB (65.7%) | Available: 2629 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 303 | Running (R): 2 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   20M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15639 ps                            300      0.0 R+
+   15583 chrome                       16.0      2.2 Sl
+    3395 chrome                       12.5      6.7 Sl
+    2046 chrome                       12.0      3.3 Sl
+    8425 claude                        9.6      4.5 Sl+
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:19:01 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:06:41 | Load average (1/5/15m): 1.57 / 1.06 / 1.05
+CPU: 12.2% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5004/7683 MiB (65.1%) | Available: 2679 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 303 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   19M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15723 ps                            300      0.0 R+
+    3395 chrome                       12.5      6.7 Sl
+    2046 chrome                       11.9      3.3 Sl
+    8425 claude                        9.6      4.5 Sl+
+    2002 chrome                        9.5      6.2 Sl
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:19:11 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:06:51 | Load average (1/5/15m): 1.48 / 1.05 / 1.05
+CPU: 8.8% | Logical CPUs: 8 | Valid sample: 1
+RAM: 5006/7683 MiB (65.1%) | Available: 2676 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 302 | Running (R): 1 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   19M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15779 ps                            300      0.0 R+
+    3395 chrome                       12.5      6.7 Sl
+    2046 chrome                       11.9      3.3 Sl
+    8425 claude                        9.7      4.7 Sl+
+    2002 chrome                        9.4      6.2 Sl
+=== END SNAPSHOT ===
+
+=== NEONPULSE SNAPSHOT 2026-11-11 09:19:21 +0700 ===
+Hostname: acong-ThinkPad-X1-Carbon-6th
+OS: Linux Mint 22.3
+Kernel: Linux 6.14.0-37-generic | Architecture: x86_64
+Uptime: 0d 01:07:01 | Load average (1/5/15m): 1.55 / 1.09 / 1.06
+CPU: 10.9% | Logical CPUs: 8 | Valid sample: 1
+RAM: 4979/7683 MiB (64.8%) | Available: 2703 MiB | Valid sample: 1
+Swap: 0/2047 MiB
+Root disk: 16% (35G/234G) | Valid df: 1
+Process count (all): 302 | Running (R): 2 | Valid ps: 1
+All filesystems (8):
+Filesystem Size Used Available Use% Mounted on
+tmpfs           769M  1.8M  767M   1% /run
+efivarfs        154K   83K   67K  56% /sys/firmware/efi/efivars
+/dev/nvme0n1p2  234G   35G  187G  16% /
+tmpfs           3.8G   19M  3.8G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           3.8G     0  3.8G   0% /run/qemu
+/dev/nvme0n1p1  511M  6.2M  505M   2% /boot/efi
+tmpfs           769M  144K  769M   1% /run/user/1000
+Top 5 CPU processes (ps %CPU: lifetime average, not interval):
+     PID PROCESS                      CPU%     MEM% STATE
+   15839 ps                            200      0.0 R+
+    3395 chrome                       12.4      6.7 Sl
+    2046 chrome                       11.9      3.3 Sl
+    8425 claude                        9.8      4.7 Sl+
+    2002 chrome                        9.4      6.2 Sl
+=== END SNAPSHOT ===

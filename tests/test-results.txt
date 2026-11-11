@@ -1,0 +1,17 @@
+test_01_syntax_permissions_and_backup (__main__.MonitorTests.test_01_syntax_permissions_and_backup) ... ok
+test_02_real_metrics (__main__.MonitorTests.test_02_real_metrics) ... ok
+test_03_append_timestamp_and_path (__main__.MonitorTests.test_03_append_timestamp_and_path) ... ok
+test_04_invalid_config_and_non_tty (__main__.MonitorTests.test_04_invalid_config_and_non_tty) ... ok
+test_05_deterministic_cpu_math_and_bar (__main__.MonitorTests.test_05_deterministic_cpu_math_and_bar) ... ok
+test_06_rotation_and_concurrent_append (__main__.MonitorTests.test_06_rotation_and_concurrent_append) ... ok
+test_07_log_failure_is_reported (__main__.MonitorTests.test_07_log_failure_is_reported) ... ok
+test_08_pty_navigation_refresh_logging_resize_cleanup (__main__.MonitorTests.test_08_pty_navigation_refresh_logging_resize_cleanup) ... ok
+test_09_signal_cleanup (__main__.MonitorTests.test_09_signal_cleanup) ... ok
+test_10_ascii_no_color_and_idle_cpu (__main__.MonitorTests.test_10_ascii_no_color_and_idle_cpu) ... ok
+test_11_missing_commands_and_partial_metric_failures (__main__.MonitorTests.test_11_missing_commands_and_partial_metric_failures) ... ok
+test_12_default_refresh_and_auto_log_interval (__main__.MonitorTests.test_12_default_refresh_and_auto_log_interval) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 24.523s
+
+OK
