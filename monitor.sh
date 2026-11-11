@@ -373,7 +373,7 @@ panel_meter() {
   local size=$1 label=$2 pct=$3 number=$4 accent=$5 valid=$6 length
   status_style "$pct" "$accent" "$valid"
   ((valid)) || number='N/A'
-  length=$((size - 24))
+  length=$((size - 23))
   printf '%s%s%s %s%-4s %6s%% ' "$accent" "$V" "$RESET" "$WHITE" "$label" "$number"
   bar "$pct" "$length" "$BAR_COLOR"
   printf ' %s%5s%s %s%s%s' "$WHITE" "$([[ $STATUS == OK ]] && printf OK || { ((valid)) && printf ALERT || printf N/A; })" "$RESET" "$accent" "$V" "$RESET"
@@ -389,7 +389,9 @@ navigation() {
     esac
     token=" $label "
     if [[ $target == "$selected" ]]; then
-      printf '%s%s%s%s' "$BOLD" "$CYAN" "$token" "$RESET"
+      if ((COLOR)); then
+        printf '\033[7m%s%s%s%s' "$BOLD" "$CYAN" "$token" "$RESET"
+      else printf '%s' ">$label "; fi
     else printf '%s%s%s' "$DIM" "$token" "$RESET"; fi
     total=$((total + ${#token}))
   done
@@ -410,7 +412,9 @@ wide_dashboard() {
   panel_meter "$right_width" RAM "$ram_pct" "$ram_display" "$PINK" "$mem_ok"
   printf '\n'
   pair_text "Load: $load_text" "Used: $mem_used_mib / $mem_total_mib MiB"
-  pair_text "CPU logis: $cores | $STATUS" "Available: $mem_avail_mib MiB"
+  status_style "$cpu_pct" "$CYAN" "$cpu_ok"; left="CPU logis: $cores | $STATUS"
+  status_style "$ram_pct" "$PINK" "$mem_ok"; right="Available: $mem_avail_mib MiB | $STATUS"
+  pair_text "$left" "$right"
   pair_text 'HISTORY // 0 - 100% / oldest -> newest' 'HISTORY // 0 - 100% / oldest -> newest' "$DIM" "$DIM"
   history_line cpu "$((left_width-4))"; lhist=$REPLY
   history_line ram "$((right_width-4))"; rhist=$REPLY
@@ -419,7 +423,9 @@ wide_dashboard() {
   pair_edge '' '' 1
   pair_edge '03 DISK ARRAY / FILESYSTEMS' '04 PROCESS GRID / TOP CPU'
   pair_text "ROOT $disk_pct% | $disk_used / $disk_total" "TOTAL $process_count | RUNNING $running_count"
-  pair_text "Mount               Used/Size   Use%" '    PID PROCESS            CPU%   MEM%' "$DIM" "$DIM"
+  printf -v left '%-*s %11s %4s' "$((left_width-27))" 'MOUNT' 'USED/SIZE' 'USE%'
+  printf -v right '%7s %-*s %6s %6s' PID "$((right_width-29))" PROCESS CPU% MEM%
+  pair_text "$left" "$right" "$DIM" "$DIM"
   for ((i=0; i<5; i++)); do
     left=''; right=''
     if ((start+i < ${#disks[@]})); then
@@ -461,7 +467,7 @@ row() {
 
 section() {
   border "$ML" "$MR"
-  row "$1" "$BOLD$WHITE"
+  row "$1" "$BOLD$CYAN"
 }
 
 status_style() {
@@ -496,13 +502,13 @@ meter_row() {
 }
 
 cpu_view() {
-  row '01 // CPU CORE MONITOR' "$BOLD$WHITE"
+  row '01 // CPU CORE MONITOR' "$BOLD$CYAN"
   meter_row CPU "$cpu_pct" "$cpu_display" "$CYAN" "$cpu_ok"
   row "Load 1/5/15m: $load_text | CPU logis: $cores"
 }
 
 ram_view() {
-  row '02 // MEMORY BANK' "$BOLD$WHITE"
+  row '02 // MEMORY BANK' "$BOLD$PINK"
   meter_row RAM "$ram_pct" "$ram_display" "$PINK" "$mem_ok"
   row "Used $mem_used_mib / $mem_total_mib MiB | Available $mem_avail_mib MiB"
 }
@@ -566,7 +572,7 @@ terminal_size() {
   size=$(stty size 2>/dev/null) || size='0 0'
   read -r rows cols <<< "$size"
   [[ $rows =~ ^[0-9]+$ && $cols =~ ^[0-9]+$ ]] || { rows=0; cols=0; }
-  width=$((cols - 1)); ((width <= 120)) || width=120
+  width=$((cols - 1)); ((width <= 160)) || width=160
   inner=$((width - 4))
   bar_width=$((inner - 39)); ((bar_width <= 54)) || bar_width=54
 }
@@ -579,13 +585,14 @@ render_dashboard() {
     return
   fi
   border "$TL" "$TR"
-  row 'N E O N P U L S E   //   SYSTEM ONLINE' "$BOLD$WHITE"
-  row "$timestamp | HOST: $host"
-  row "OS: $os | $arch"
-  row "KERNEL: $kernel | UP: $uptime_text"
+  row 'N E O N P U L S E   //   SYSTEM ONLINE' "$BOLD$CYAN"
+  row "$timestamp | HOST: $host" "$WHITE"
+  row "OS: $os | $arch" "$DIM"
+  row "KERNEL: $kernel | UP: $uptime_text" "$DIM"
+  if ((cols >= 100)) && [[ $page == all ]]; then border "$BL" "$BR"; fi
   case "$page" in
     all)
-      cpu_view; ram_view; disk_view 2; proc_view
+      if ((cols >= 100)); then wide_dashboard; else cpu_view; ram_view; disk_view 2; proc_view; fi
       ;;
     cpu)
       cpu_view
@@ -609,8 +616,8 @@ render_dashboard() {
       ;;
     help) help_view ;;
   esac
-  border "$ML" "$MR"
-  row '[0] HOME  [1] CPU  [2] RAM  [3] DISK  [4] PROC  [L] LOG' "$WHITE"
+  if ((cols >= 100)) && [[ $page == all ]]; then border "$TL" "$TR"; else border "$ML" "$MR"; fi
+  navigation
   row "[H] HELP  [Q] QUIT  [ / ] DISK PAGE | ${REFRESH}s LIVE / ${LOG_INTERVAL}s LOG" "$DIM"
   if ((cpu_ok == 0 || mem_ok == 0 || disk_ok == 0 || proc_ok == 0)); then
     row '!! Data tidak lengkap: periksa CPU/RAM/df/ps; lihat --once.' "$YELLOW"
@@ -664,6 +671,7 @@ interactive_loop() {
     fi
     if ((dirty)); then
       local capacity=2 pages
+      if [[ $page == all ]] && ((cols >= 100)); then capacity=5; fi
       if [[ $page == disk ]]; then
         capacity=$((rows - 16)); ((capacity >= 1)) || capacity=1
         ((capacity <= 100)) || capacity=100

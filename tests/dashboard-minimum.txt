@@ -1,14 +1,14 @@
 ╭─────────────────────────────────────────────────────────────────────────╮
 │ N E O N P U L S E   //   SYSTEM ONLINE                                  │
-│ 2026-11-11 09:14:15 +0700 | HOST: acong-ThinkPad-X1-Carbon-6th          │
+│ 2026-11-11 09:27:03 +0700 | HOST: acong-ThinkPad-X1-Carbon-6th          │
 │ OS: Linux Mint 22.3 | x86_64                                            │
-│ KERNEL: Linux 6.14.0-37-generic | UP: 0d 01:01:55                       │
+│ KERNEL: Linux 6.14.0-37-generic | UP: 0d 01:14:43                       │
 │ 01 // CPU CORE MONITOR                                                  │
-│  CPU        8.8%  ━━┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄  OK                  │
-│ Load 1/5/15m: 1.15 / 1.04 / 1.08 | CPU logis: 8                         │
+│  CPU       12.5%  ━━━┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄  OK                  │
+│ Load 1/5/15m: 1.69 / 2.18 / 1.66 | CPU logis: 8                         │
 │ 02 // MEMORY BANK                                                       │
-│  RAM       65.8%  ━━━━━━━━━━━━━━━━━━━━┄┄┄┄┄┄┄┄┄┄┄┄  OK                  │
-│ Used 5056 / 7683 MiB | Available 2627 MiB                               │
+│  RAM       72.4%  ━━━━━━━━━━━━━━━━━━━━━━━┄┄┄┄┄┄┄┄┄  ! WASPADA           │
+│ Used 5569 / 7683 MiB | Available 2114 MiB                               │
 ├─────────────────────────────────────────────────────────────────────────┤
 │ 03 // DISK ARRAY / FILESYSTEMS                                          │
 │  ROOT        16%  ━━━━━┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄  OK                  │
@@ -16,15 +16,15 @@
 │ tmpfs                   1.8M/769M    1%  /run                           │
 │ efivarfs                 83K/154K   56%  /sys/firmware/efi/efivars      │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ 04 // PROCESS GRID / TOTAL 304 | RUNNING 1                              │
+│ 04 // PROCESS GRID / TOTAL 320 | RUNNING 1                              │
 │      PID  PROCESS                       CPU%    MEM%  STATE             │
-│    14179  ps                             300     0.0  R+                │
-│     3395  chrome                        13.6     6.7  Sl                │
-│     2046  chrome                        12.8     3.3  Sl                │
-│    12515  chrome                        10.7     5.0  Sl                │
-│     2002  chrome                        10.1     6.2  Sl                │
+│    16272  code                          12.7     5.2  Sl                │
+│     2046  chrome                        12.2     3.2  Sl                │
+│     8425  claude                        11.1     4.4  Sl+               │
+│     3395  chrome                        11.1     6.7  Sl                │
+│    20354  chrome                        10.4     3.4  Sl                │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ [0] HOME  [1] CPU  [2] RAM  [3] DISK  [4] PROC  [L] LOG                 │
+│  0 HOME  1 CPU  2 RAM  3 DISK  4 PROC  H HELP  L LOG  Q QUIT            │
 │ [H] HELP  [Q] QUIT  [ / ] DISK PAGE | 1s LIVE / 2s LOG                  │
-│ MANUAL LOG tersimpan: 2026-11-11 09:14:14 +0700                         │
+│ MANUAL LOG tersimpan: 2026-11-11 09:27:02 +0700                         │
 ╰─────────────────────────────────────────────────────────────────────────╯

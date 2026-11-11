@@ -359,6 +359,37 @@ root_values
         finally:
             term.close()
 
+    def test_13_wide_layout_history_and_active_menu(self):
+        for columns in (100, 120, 160, 180):
+            term = Terminal(self.app, rows=30, cols=columns)
+            try:
+                term.wait("PROCESS GRID")
+                term.pump(0.1)
+                frame = latest_frame(term.data)
+                self.assertEqual(len(frame.splitlines()), 29)
+                self.assertEqual(set(map(len, frame.splitlines())), {min(columns-1, 160)})
+                self.assertIn("CORE MONITOR", frame)
+                self.assertIn("MEMORY BANK", frame)
+                self.assertIn("HISTORY //", frame)
+                self.assertIn("│ │", frame)
+                self.assertIn(b"\x1b[7m", term.data)
+                term.key("2", "Swap:")
+                self.assertIn("2 RAM", latest_frame(term.data))
+                self.assertEqual(term.quit(), 0)
+            finally:
+                term.close()
+        script = r'''
+source "$1"
+ASCII=0; cpu_history=(0 50 100)
+history_line cpu 5
+[[ $REPLY == '  ▁▄█' ]] || exit 1
+cpu_history=()
+history_line cpu 5
+[[ $REPLY == '     ' ]] || exit 2
+'''
+        result = run("bash", "-c", script, "test", str(APP))
+        self.assertEqual(result.returncode, 0, result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

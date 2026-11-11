@@ -6,6 +6,17 @@ Dashboard terminal dengan meter neon cyan/magenta, peringatan kuning/merah,
 filesystem berpaginasi, lima proses teratas, dan snapshot log bertimestamp.
 Tidak membutuhkan root, tidak mengubah atau menghentikan proses sistem.
 
+### Tampilan bergaya btop
+
+Pada terminal **>=100 kolom**, dashboard otomatis menggunakan empat panel dua kolom:
+CPU dan RAM di atas, disk dan proses di bawah. Frame cyan/magenta memisahkan panel,
+header tabel sejajar dengan datanya, dan tab halaman aktif ditandai inverse-video.
+Riwayat mini CPU/RAM menampilkan hingga 120 sampel aktual (kiri lama, kanan terbaru);
+ruang kosong berarti belum ada sampel, bukan angka nol. Saat terminal 76–99 kolom,
+tampilan kembali bertumpuk agar tetap terbaca. Lebar dashboard maksimum 160 kolom.
+Untuk melihat versi berwarna, jalankan `./monitor.sh`, bukan `--once`, dan pastikan
+variabel `NO_COLOR` tidak disetel. Riwayat tetap dibedakan oleh label di mode tanpa warna.
+
 ## Instalasi dan menjalankan
 
 Ubuntu/Debian (termasuk Linux Mint). Bash minimal versi 4, direkomendasikan Bash 5.

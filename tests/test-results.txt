@@ -10,8 +10,9 @@ test_09_signal_cleanup (__main__.MonitorTests.test_09_signal_cleanup) ... ok
 test_10_ascii_no_color_and_idle_cpu (__main__.MonitorTests.test_10_ascii_no_color_and_idle_cpu) ... ok
 test_11_missing_commands_and_partial_metric_failures (__main__.MonitorTests.test_11_missing_commands_and_partial_metric_failures) ... ok
 test_12_default_refresh_and_auto_log_interval (__main__.MonitorTests.test_12_default_refresh_and_auto_log_interval) ... ok
+test_13_wide_layout_history_and_active_menu (__main__.MonitorTests.test_13_wide_layout_history_and_active_menu) ... ok
 
 ----------------------------------------------------------------------
-Ran 12 tests in 24.523s
+Ran 13 tests in 27.720s
 
 OK

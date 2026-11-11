@@ -2,6 +2,28 @@
 
 Tanggal pengujian: **11 November 2026**, zona waktu mesin `+0700`.
 
+## Pembaruan UI bergaya btop
+
+Versi UI terbaru lolos **13/13 pengujian dalam 27,720 detik**, exit status 0,
+termasuk `bash -n monitor.sh`. Bukti terbaru berada di `tests/test-results.txt`.
+Bagian laporan berikut mendokumentasikan baseline sebelumnya; angka benchmark
+baseline tidak dianggap pengukuran ulang versi UI terbaru.
+
+- Terminal >=100 kolom: empat panel, CPU/RAM berdampingan dan disk/proses berdampingan.
+- Aksen cyan/magenta, tab aktif inverse-video, label warning tetap tersedia.
+- Riwayat CPU/RAM dari sampel nyata, buffer dibatasi 120 sampel; belum ada data
+  ditampilkan sebagai ruang kosong. Fixture deterministik riwayat ikut diuji.
+- PTY lebar 100, 120, 160, 180 kolom: semua baris tepat selebar frame, tanpa overflow;
+  frame lebar memakai 29 baris, maksimum 160 kolom. Fallback 76×30 tetap lulus.
+- Navigasi, snapshot, append/rotasi, refresh, sinyal, dan cleanup lama tetap lulus.
+- Pengukuran idle suite terbaru sekitar **8,66% satu core** selama 3 detik pada
+  refresh 1 detik/log 2 detik; bukan benchmark jangka panjang.
+- Capture teks dashboard terbaru ditinjau, tetapi rendering font/warna pada jendela
+  terminal grafis pengguna masih perlu pemeriksaan manual.
+- Assertion tambahan awal mengharapkan 30 baris untuk UI lebar; hasil sebenarnya
+  29 baris yang muat dalam terminal 30 baris. Ekspektasi diperbaiki dan suite
+  dijalankan ulang hingga seluruh pengujian lulus.
+
 ## 1. Diagnosis awal dan tindakan
 
 `monitor.sh` awal berukuran 5589 byte dan memiliki izin executable `775`.
