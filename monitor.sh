@@ -36,7 +36,7 @@ width=0
 inner=0
 bar_width=20
 log_error=''
-declare -a disks=() processes=()
+declare -a disks=() processes=() cpu_history=() ram_history=()
 
 usage() {
   printf '%s\n' \
@@ -259,6 +259,9 @@ collect_metrics() {
   load_text="$l1 / $l5 / $l15"
   printf -v timestamp '%(%Y-%m-%d %H:%M:%S %z)T' -1
   ((sample_number+=1))
+  cpu_history+=("$cpu_pct"); ram_history+=("$ram_pct")
+  ((${#cpu_history[@]} <= 120)) || cpu_history=("${cpu_history[@]: -120}")
+  ((${#ram_history[@]} <= 120)) || ram_history=("${ram_history[@]: -120}")
 }
 
 snapshot_text() {
@@ -315,6 +318,124 @@ write_log() {
   exec {lock_fd}>&-
   if ((result)); then log_error='Gagal menulis atau merotasi log'; return 1; fi
   return 0
+}
+
+# Renderer dua kolom: setiap sel membawa lebar eksplisit, bukan panjang ANSI.
+# Riwayat hanya berisi sampel aktual; ruang kosong bukan nilai monitoring palsu.
+history_line() {
+  local kind=$1 length=$2 value index char result='' i start
+  local -a values=() levels=('▁' '▂' '▃' '▄' '▅' '▆' '▇' '█')
+  [[ $kind == cpu ]] && values=("${cpu_history[@]}") || values=("${ram_history[@]}")
+  ((ASCII)) && levels=('.' ':' '-' '=' '+' '*' '#' '@')
+  start=$((${#values[@]} - length)); ((start >= 0)) || start=0
+  for ((i=start; i<${#values[@]}; i++)); do
+    value=${values[i]}; index=$((value * 7 / 100)); result+=${levels[index]}
+  done
+  printf -v REPLY '%*s%s' "$((length - ${#result}))" '' "$result"
+}
+
+panel_edge() {
+  local size=$1 title=$2 color=$3 bottom=${4:-0} line left=$TL right=$TR
+  if ((bottom)); then left=$BL; right=$BR; title=''; fi
+  ((size > 0)) || return
+  if [[ -n $title ]]; then
+    safe_text " $title " "$((size-4))"; title=$REPLY
+    repeat_char "$H" "$((size - 3 - ${#title}))"; line=$REPLY
+    printf '%s%s%s%s%s%s%s%s' "$color" "$left" "$H" "$BOLD" "$title" "$RESET$color" "$line" "$right"
+  else
+    repeat_char "$H" "$((size-2))"
+    printf '%s%s%s%s' "$color" "$left" "$REPLY" "$right"
+  fi
+  printf '%s' "$RESET"
+}
+
+panel_cell() {
+  local size=$1 text=$2 accent=$3 ink=${4:-$WHITE} raw=${5:-0}
+  if ((raw == 0)); then safe_text "$text" "$((size-4))"; text=$REPLY; fi
+  printf '%s%s%s %s%-*s%s %s%s%s' "$accent" "$V" "$RESET" "$ink" "$((size-4))" "$text" "$RESET" "$accent" "$V" "$RESET"
+}
+
+pair_text() {
+  panel_cell "$left_width" "$1" "$CYAN" "${3:-$WHITE}" "${5:-0}"
+  printf ' '
+  panel_cell "$right_width" "$2" "$PINK" "${4:-$WHITE}" "${5:-0}"
+  printf '\n'
+}
+
+pair_edge() {
+  panel_edge "$left_width" "$1" "$CYAN" "${3:-0}"
+  printf ' '
+  panel_edge "$right_width" "$2" "$PINK" "${3:-0}"
+  printf '\n'
+}
+
+panel_meter() {
+  local size=$1 label=$2 pct=$3 number=$4 accent=$5 valid=$6 length
+  status_style "$pct" "$accent" "$valid"
+  ((valid)) || number='N/A'
+  length=$((size - 24))
+  printf '%s%s%s %s%-4s %6s%% ' "$accent" "$V" "$RESET" "$WHITE" "$label" "$number"
+  bar "$pct" "$length" "$BAR_COLOR"
+  printf ' %s%5s%s %s%s%s' "$WHITE" "$([[ $STATUS == OK ]] && printf OK || { ((valid)) && printf ALERT || printf N/A; })" "$RESET" "$accent" "$V" "$RESET"
+}
+
+navigation() {
+  local target label total=0 token pad selected=$page
+  printf '%s%s%s ' "$PURPLE" "$V" "$RESET"
+  for target in all cpu ram disk proc help; do
+    case "$target" in
+      all) label='0 HOME' ;; cpu) label='1 CPU' ;; ram) label='2 RAM' ;;
+      disk) label='3 DISK' ;; proc) label='4 PROC' ;; help) label='H HELP' ;;
+    esac
+    token=" $label "
+    if [[ $target == "$selected" ]]; then
+      printf '%s%s%s%s' "$BOLD" "$CYAN" "$token" "$RESET"
+    else printf '%s%s%s' "$DIM" "$token" "$RESET"; fi
+    total=$((total + ${#token}))
+  done
+  token=' L LOG  Q QUIT'; printf '%s%s%s' "$WHITE" "$token" "$RESET"
+  total=$((total + ${#token})); pad=$((inner-total))
+  printf '%*s %s%s%s\n' "$pad" '' "$PURPLE" "$V" "$RESET"
+}
+
+wide_dashboard() {
+  local left_width=$(((width-1)/2)) right_width=$((width-1-(width-1)/2))
+  local left right i item source size used avail pct mount pid state cpu mem name
+  local capacity=5 pages=$(((${#disks[@]}+4)/5)) start lhist rhist
+  ((pages > 0)) || pages=1
+  start=$((disk_page*capacity))
+  pair_edge '01 CPU // CORE MONITOR' '02 RAM // MEMORY BANK'
+  panel_meter "$left_width" CPU "$cpu_pct" "$cpu_display" "$CYAN" "$cpu_ok"
+  printf ' '
+  panel_meter "$right_width" RAM "$ram_pct" "$ram_display" "$PINK" "$mem_ok"
+  printf '\n'
+  pair_text "Load: $load_text" "Used: $mem_used_mib / $mem_total_mib MiB"
+  pair_text "CPU logis: $cores | $STATUS" "Available: $mem_avail_mib MiB"
+  pair_text 'HISTORY // 0 - 100% / oldest -> newest' 'HISTORY // 0 - 100% / oldest -> newest' "$DIM" "$DIM"
+  history_line cpu "$((left_width-4))"; lhist=$REPLY
+  history_line ram "$((right_width-4))"; rhist=$REPLY
+  pair_text "$lhist" "$rhist" "$CYAN" "$PINK" 1
+  pair_text "$cpu_model" "Swap: $((swap_used/1024)) / $((swap_total/1024)) MiB" "$DIM" "$DIM"
+  pair_edge '' '' 1
+  pair_edge '03 DISK ARRAY / FILESYSTEMS' '04 PROCESS GRID / TOP CPU'
+  pair_text "ROOT $disk_pct% | $disk_used / $disk_total" "TOTAL $process_count | RUNNING $running_count"
+  pair_text "Mount               Used/Size   Use%" '    PID PROCESS            CPU%   MEM%' "$DIM" "$DIM"
+  for ((i=0; i<5; i++)); do
+    left=''; right=''
+    if ((start+i < ${#disks[@]})); then
+      item=${disks[start+i]}; read -r source size used avail pct mount <<< "$item"
+      safe_text "$mount" "$((left_width-27))"; mount=$REPLY
+      printf -v left '%-*s %5s/%-5s %4s' "$((left_width-27))" "$mount" "$used" "$size" "$pct"
+    fi
+    if ((i < ${#processes[@]})); then
+      read -r pid state cpu mem name <<< "${processes[i]}"
+      safe_text "$name" "$((right_width-29))"; name=$REPLY
+      printf -v right '%7s %-*s %6s %6s' "$pid" "$((right_width-29))" "$name" "$cpu" "$mem"
+    fi
+    pair_text "$left" "$right" "$WHITE" "$WHITE"
+  done
+  pair_text "[$((disk_page+1))/$pages] [ / ] halaman disk | 3 detail" 'CPU% ps = rata-rata umur proses' "$DIM" "$DIM"
+  pair_edge '' '' 1
 }
 
 # Utilitas UI: setiap baris mempunyai lebar terlihat yang dibatasi.
